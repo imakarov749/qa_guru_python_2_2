@@ -1,15 +1,16 @@
 from selene.support.shared import browser
 import pytest
+from selene import have
 
-#открываем браузер, закрываем после теста
+#открываем браузер, проверяем корректность url закрываем после теста
 @pytest.fixture()
 def open_browser():
     url = ('https://google.com')
     browser.open(url)
 
-    #Тут не уверен в правильности и нужности assert, хотел проверить открытый url, но не смог понять, как
-    #broweser.get() и прочие штуки не помогли
-    assert url == 'https://google.com'
+    #проверяем, что открытый url корректный
+    check_url = browser.should(have.url('https://www.google.com/'))
+    #assert check_url == 'https://google.com'
     yield
     browser.close()
 
