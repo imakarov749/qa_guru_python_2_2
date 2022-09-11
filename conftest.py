@@ -10,7 +10,7 @@ def open_browser():
 
     #проверяем, что открытый url корректный
     check_url = browser.should(have.url('https://www.google.com/'))
-    #assert check_url == 'https://google.com'
+    print(check_url)
     yield
     browser.close()
 
