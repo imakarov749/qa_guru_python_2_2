@@ -1,6 +1,6 @@
 def func_print(func_name, *args):
-    func_name = func_name.__name__
-    print(func_name, *args)
+    func_name = func_name.__name__.replace("_", " ").capitalize()
+    print(f"Function name: {func_name}. Function Arguments:", *args)
 
 
 def open_browser(browser_name):
