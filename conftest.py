@@ -28,7 +28,8 @@ def demo_qa_open_browser():
     yield
     browser.close()
 
+
 #задаем конфигурацию браузера
-@pytest.fixture(autouse=True)
+@pytest.fixture()
 def browser_configure(demo_qa_open_browser):
     browser.driver.set_window_size(1920, 1080)
